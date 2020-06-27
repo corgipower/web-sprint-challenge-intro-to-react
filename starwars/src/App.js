@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character';
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+
+const Heading1 = styled.h1`
+  background: cyan;
+`;
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -27,10 +31,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <Heading1>Characters</Heading1>
       {
         characters.map((person, i) => (
-          <Character key={i} name={person.name} birthYear={person.birth_year} />
+          <Character key={i} pos={i} name={person.name} birthYear={person.birth_year} />
         ))
       }
     </div>
